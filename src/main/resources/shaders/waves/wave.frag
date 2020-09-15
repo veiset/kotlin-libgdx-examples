@@ -1,4 +1,4 @@
-#version 130
+#version 120
 #ifdef GL_ES
 precision highp float;
 #endif
@@ -20,7 +20,7 @@ void main()
     vec2 sinOffsetCoord = v_texCoords;
     vec3 color = v_color.rgb;
 
-    vec2 texSize = textureSize(u_texture, 0);
+    vec2 texSize = vec2(0.01, 0.01);
     sinOffsetCoord.y += sin((v_texCoords.x + u_time*rippleTimeValue) * rippleFreq)*rippleAmpl/texSize.y;
     sinOffsetCoord.x += cos((v_texCoords.y + u_time*rippleTimeValue) * rippleFreq)*rippleAmpl/texSize.x;
     vec2 offset;
