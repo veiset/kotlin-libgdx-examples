@@ -12,7 +12,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.graphics.glutils.ShaderProgram
 import com.badlogic.gdx.math.Vector2
 import ktx.app.clearScreen
-import org.lwjgl.opengl.GL20.glBindAttribLocation
 import org.veiset.kotlin.libgdx.FPS
 import org.veiset.kotlin.libgdx.HEIGHT
 import org.veiset.kotlin.libgdx.WIDTH
@@ -176,7 +175,6 @@ fun ShaderProgram.setVars(vararg args: Pair<String, Any>) {
     this.setUniformf("u_time", time)
     this.setUniformf("u_resolution", Vector2(1920f, 1080f))
     this.setUniformf("u_mouse", Vector2(Gdx.input.x.toFloat(), Gdx.input.y.toFloat()))
-
     args.forEach { (paramName, value) ->
         when (value) {
             is Boolean -> this.setUniformi(paramName, if (value) 1 else 0)
